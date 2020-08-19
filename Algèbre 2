@@ -1,0 +1,1092 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = fr
+
+\documentclass[12pt, a4paper]{report}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{systeme}
+\usepackage[utf8]{inputenc}
+%\usepackage[colorlinks=true,
+%linkcolor=black,
+%urlcolor=black,
+%citecolor=black]{hyperref}
+
+
+
+
+\everymath{\displaystyle}
+\def\size#1{\font\name=cmr#1\name}
+\usepackage[]{hyperref}
+\usepackage{arabtex}
+%\renewcommand{\headrulewidth}{1pt}
+%\usepackage{blindtext}
+%\usepackage[Lenny]{fncychap}
+%\usepackage{ fancybox }
+%\usepackage[showframe]{geometry}
+%\usepackage[francais]{babel} 
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{mathrsfs}
+\usepackage{amsthm}
+%\mathversion{bold}
+%\usepackage{lipsum}
+%\usepackage{tcolorbox}
+%\usepackage{tikz,lipsum,lmodern}
+\usepackage{t1enc}
+\usepackage{changepage}
+%\usepackage[toc,page]{appendix}
+\usepackage[acronym]{glossaries}
+\usepackage{imakeidx}
+%\usepackage  [width=18.00cm, height=26.00cm] {geometry} 
+\newcommand{\transcendante}{transcendante}
+%\usepackage{geometry}
+\numberwithin{equation}{section}
+%\setcounter{page}{0}
+%\renewcommand{\baselinestretch}{1.5}
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings}
+\theoremstyle{plain}
+\usepackage{fancyhdr}
+\usepackage{pgf}
+\fancyfoot{}
+\fancyhead[RO,LE]{\thepage}
+\fancyhead[LO]{\leftmark}
+%\fancyhead[RE]{\rightmark}
+%\pagestyle{fancy}
+\lhead{\rightmark}
+%\rhead{\leftmark}
+
+%\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+%\renewcommand{\chaptermark}[1]{\markboth{Chap \thechapter.\ #1}{}}
+\fancyhead[LE,RO]{\footnotesize {\rightmark} }
+\fancyhead[LO,RE]{{\normalsize }{\leftmark}}
+\renewcommand{\footrulewidth}{3pt}
+\makeindex
+\newtheorem{theo}{\textbf{Théorème}}[section]
+\newtheorem{df}{Définition}[section]
+\newtheorem{lemma}{Lemme}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollaire}[section]
+\newtheorem{prpr}{Propriété}[section]
+\newtheorem{exm}{Exemple}[section]
+\newtheorem{rem}{Remarque}[section]
+\newtheorem{cnj}{Conjecture}[section]
+\newtheorem{exo}{Exercice}[section]
+\newtheorem{sol}{Solution}[section]
+%\newtheorem{apds}{Annexes}[section]
+\renewcommand{\Im}{\operatorname{Im}}
+\renewcommand{\Re}{\operatorname{Re}}
+\newtheorem{prf}{Preuve}
+
+\usepackage[toc,page]{appendix}
+
+
+\begin{document}
+\tableofcontents
+\author{Haoues Bagua Dpt:MI Univ MEDEA}
+\chapter{Les espaces vectoriels}
+\section{Structure d'espace vectoriel}
+
+ $ \mathbb{K} $ désigne un
+corps commutatif, muni de l'addition $ +_{\mathbb{K}} $; et de la multiplication $ \times_{\mathbb{K}} $
+Ce corps peut être $  \mathbb{R} $ ou  $ \mathbb{C} $. On note $ 0 $ et $ 1 $ les éléments neutres pour l'addition et pour la multiplication. 
+
+On considère un ensemble $ E $ muni d'une loi de composition interne + :
+\[  (x,y)\in E\times E \mapsto x+y\in E, \] 
+et muni d'une loi de composition externe (sur le corps $ \mathbb{K} $ )·:
+\[ (\alpha,x)\in \mathbb{K}\times E \mapsto \alpha.x\in E . \]
+\begin{df}
+On dit que $ E $ est un espace vectoriel sur $ \mathbb{K} $ si :
+\begin{itemize}
+\item $ (E,+) $ est un groupe commutatif,
+\item  La loi externe possède les propriétés suivantes :
+\[ \forall\alpha\in\mathbb{K}\quad(x,y)\in E^2\quad\alpha.(x+y)=\alpha.x+\alpha.y, \]
+\[ \forall(\alpha,\beta)\in\mathbb{K}^2\quad\forall x\in E\quad(\alpha+\beta).x=\alpha.x+\beta.x, \]
+\[ \forall(\alpha,\beta)\in\mathbb{K}^2\quad\forall x\in E\quad\alpha.(\beta.x)=(\alpha\times\beta).x, \]
+\[ \forall x\in E\quad 1_{\mathbb{K}}.x=x. \]
+\end{itemize}
+\end{df}
+\begin{rem}
+\begin{itemize}
+\item Les éléments de $ E $ sont appelés vecteurs et les éléments de $ \mathbb{K} $ sont appelés scalaires.
+\item Un espace vectoriel sur $ \mathbb{K} $ est aussi appelé $ \mathbb{K}- $espace vectoriel ou encore $ \mathbb{K}- $espace
+\end{itemize}
+\end{rem}
+\begin{exm}
+Soit $ n $ un entier non nul. On munit l'ensemble $ \mathbb{K}^n $ défini par
+\[ \mathbb{K}^n=\{(x_1,x_2,...,x_n)| x_1\in\mathbb{K},...,x_n\in\mathbb{K}\} \]
+des deux lois $ + $ et $ . $ définies pour tous $ (x_1,...,x_n) $ et $ (y_1,...,y_n) $ appartenant
+à $ \mathbb{K}^n $ et pour tout $ \alpha\in\mathbb{K} $ par \[ (x_1,...,x_n)+(y_1,...,y_n)=(x_1+_{\mathbb{K}}y_1,...,x_n+_{\mathbb{K}}y_n),\quad(loi\  interne) \]
+\[ \alpha.(x_1,...,x_n)=(\alpha\times_{\mathbb{K}}x_1,...,\alpha\times_{\mathbb{K}}x_n),\quad(loi\  externe). \]
+Muni de ces deux lois, l'ensemble produit $ \mathbb{K}^n $ possède une structure de $ \mathbb{K} $espace vectoriel. Un vecteur de $ \mathbb{K}^n $ est un $ n- $uplet et on le note $ x=(x_1,...,x_n)  $· L'élément neutre pour l'addition est le vecteur
+$ 0_{\mathbb{K}^n}=(0_{\mathbb{K}},...,0_{\mathbb{K}})\in\mathbb{K}^n $, que l'on note plus simplement $ 0=(0,...,0) $.
+\end{exm}
+\begin{exm}
+L'ensemble $ \mathbb{K}[X] $ des polynômes à coefficients dans $ \mathbb{K} $ est un espace vectoriel
+sur $ \mathbb{K} $. La loi de composition interne sur $ \mathbb{K}[X] $ est l'addition de polynômes et la
+loi de composition externe est la multiplication d'un polynôme par un élément de $ \mathbb{K} $. Les vecteurs de $ \mathbb{K}[X] $ sont les polynômes et les scalaires sont les éléments de $ \mathbb{K} $. Le vecteur nul est le polynôme
+\[ 0_{\mathbb{K}[X]}=(0_{\mathbb{K}},0_{\mathbb{K}},...,0_{\mathbb{K}},...)\in\mathbb{K}[X]. \]
+\end{exm}
+\section{Sous-espace vectoriel}
+\begin{df}
+Soient $ E $ un $ \mathbb{K}- $espace vectoriel et $ F $ une partie de $ E $. On dit que $ F $ est un sous-espace vectoriel de $ E $ si $ F $ est non vide et si \[ \forall(\alpha,\beta)\in\mathbb{K}^2\quad\forall x\in F\quad \forall y\in F\quad \alpha x+\beta y\in F. \]
+\end{df}
+\begin{rem}
+
+\item Si un ensemble est un sous-espace vectoriel de $ E $ alors il contient nécessairement le vecteur $ 0_E $ .
+\end{rem}
+\begin{rem}
+ Les deux ensembles $ \{ 0_E \} $ et $ E $ constituent deux sous-espaces vectoriels de
+$ E $, appelés sous-espaces triviaux.
+\end{rem}
+\begin{rem}
+ Si $ G $ est un sous-espace de $ F $ et $ F $ un sous-espace de $ E $ alors $ G $ est aussi un
+sous-espace de $ E $.
+\end{rem}
+\begin{rem}
+ Si $ F $ est un sous-espace de $ E $ alors le complémentaire de $ F $ dans $ E $ n'est pas
+un sous-espace de $ E $. Il suffit de remarquer que $ 0_E\notin\complement_E(F). $
+\end{rem}
+
+
+\begin{exm}
+Soient $ E $ un $ \mathbb{K}- $espace différent de $  \{ 0_E \} $ et u un vecteur de $ E $. L'ensemble 
+\[ \mathbb{K}u=\{x\in E | \exists\alpha\in\mathbb{K}\quad x=\alpha u\}=\{\alpha u | \alpha\in \mathbb{K}\} \]
+est un sous-espace vectoriel de $ E $. Si $ u=0_E $ alors $ \{0_E\} $ est le sous-espace trivial $ \{0_E \} $ · Si $ u\neq0_E $ alors $ \mathbb{K}u $ est appelé droite vectorielle engendrée par le
+vecteur $ u $.
+\end{exm}
+\begin{exm}
+Soit $ E=\mathbb{R} $. et $ F=]0,1[ $. Il est facile de vérifier que $ F $ n'est pas un sous espace de $ E $. Par exemple pour les éléments $ x=1/2\in F $ et $ y=3/4\in F $, on a :$ x+y=1/2+3/4=5/4\notin F. $ 
+\end{exm}
+\begin{exm}
+Les trois parties $ F_1, F_2, F_3 $ définies ci-dessous sont des sous-espaces vectoriels  de l'espace $ \mathbb{K}^3 $
+\[ F_1=\{0\}\times\mathbb{K}\times\mathbb{K}=\left\lbrace (0,x_2,x_3)\in\mathbb{K}^3 | x_2\in\mathbb{K},x_2\in\mathbb{K}\right\rbrace , \]
+\[ F_2=\mathbb{K}\times\{0\}\times\mathbb{K}=\left\lbrace (x_1,0,x_3)\in\mathbb{K}^3 | x_1\in\mathbb{K},x_3\in\mathbb{K}\right\rbrace,  \]
+\[ F_3=\mathbb{K}\times\mathbb{K}\times\{0\}=\left\lbrace (x_1,x_2,0)\in\mathbb{K}^3 | x_1\in\mathbb{K},x_2\in\mathbb{K}\right\rbrace.  \]
+\end{exm}
+\begin{prop}
+Soient $ E $ un $ \mathbb{K}- $espace vectoriel et $ (F_i)_{i\in I} $ une famille (finie ou infinie) de sous-espace vectoriels de $ E.$ L'ensemble $ \bigcap_{i\in I}F_i $ est un sous-espace vectoriel de $ E $. 
+\end{prop}
+\begin{proof}
+Puisque $ 0_E $ appartient à chacun des sous-espaces vectoriels $ F_i, i\in I $, il appartient aussi à leur intersection, ce qui prouve que l'ensemble  $ \bigcap_{i\in I}F_i  $ est non vide. Si $ x $ et $ y $ sont deux vecteurs de $ \bigcap_{i\in I}F_i $ alors, pour tout
+$ i\in I $, $ x $ et $ y $ appartiennent à $ F_i $ et, pour tous  $ \alpha,\beta\in\mathbb{K} $, le vecteur $ \alpha x+\beta y $ appartient aussi à $ F_i $ (puisque $ F_i $ est un sous-espace de $ E $) . Le vecteur $ \alpha x+\beta y $
+appartient donc à  $ \bigcap_{i\in I}F_i $ .
+\end{proof}
+\begin{exm}
+Soient $ F_1=\{0\}\times\mathbb{R}\times\mathbb{R} $ et $ F_3=\mathbb{R}\times\mathbb{R}\times\{0\} $ deux sous-espaces de $ \mathbb{R} $ . Soit
+ $ x=(x_1, x_2, x_3 ) $ un vecteur de $ \mathbb{R} $. . Supposons que $ x\in F_1\cap F_3 $ . De $ x\in F_1 $ il
+vient $ x_1=0 $ et de $ x\in F_3 $ il vient $ x_3=0 $, d'où $ x=(0, x_2,0) $ . Ainsi,
+\[ F_1\cap F_3=\left\lbrace(0,x_2,0)\in\mathbb{R}^3 | x_2\in\mathbb{R} \right\rbrace=\{0\}\times\mathbb{R}\times\{0\}  \]
+ou encore, puisque $ (0,x_2,0)=x_2(0,1,0) $
+\[  F_1\cap F_3=\mathbb{R}e_2\quad\text{avec}\quad e_2=(0,1,0). \]
+\end{exm}
+\begin{exm}
+Soient $ F $ et $ G $ les sous-ensembles du $ \mathbb{R}- $espace vectoriel $ \mathcal{A}(\mathbb{R},\mathbb{R}) $ , constitués
+des applications respectivement paires et impaires :
+\[ F=\left\lbrace f\in\mathcal{A}(\mathbb{R},\mathbb{R}) | \forall x\in\mathbb{R}\quad f(-x)=f(x) \right\rbrace,  \]
+\[ G=\left\lbrace f\in\mathcal{A}(\mathbb{R},\mathbb{R}) | \forall x\in\mathbb{R}\quad -f(-x)=f(x) \right\rbrace.  \]
+On vérifie facilement que $ F $ et $ G $ sont deux sous-espaces de $ \mathcal{A}(\mathbb{R},\mathbb{R}) $ . Soit
+$ f\in F\cap G $. D 'une part, puisque $ f\in F $, $ f(x)=f(-x) $ pour tout $ x\in \mathbb{R} $ D'autre part, puisque $ f\in G, f(x)=-f(-x) $ pour tout $ x\in \mathbb{R} $ On en déduit :
+\[ \forall X\in\mathbb{R}\quad f(x)+f(x)=f(-x)-f(-x), \]
+d'où $ f(x)=0 $ pour tout $ x\in\mathbb{R}; f $ est donc l'application nulle. Ainsi,
+\[ F\cap G=\left\lbrace x\in\mathbb{R}\mapsto 0\in\mathbb{R} \right\rbrace.  \]
+\end{exm}
+\begin{rem}
+L'union d'une famille (finie ou infinie) de
+sous-espaces vectoriels de $ E $ n'est pas nécessairement un sous-espace vectoriel de $ E $. Par exemple, considérons les deux sous-espaces $ F_1 $ et $ F_2 $ de
+l'espace produit $ \mathbb{R}^2 $ définis par
+\[ F_1=\mathbb{R}\times\{0\}=\left\lbrace (x_1,0)\in\mathbb{R}^2 | x_1\in\mathbb{R}, \right\rbrace,  \]\[ F_2=\{0\}\times\mathbb{R}=\left\lbrace (0,x_2)\in\mathbb{R}^2 | x_2\in\mathbb{R} \right\rbrace.  \]
+L'ensemble $ F_1\cup F_2 $ n'est pas un sous-espace de $ \mathbb{R}^2 $ puisque $ (1,0)\in F_1 ,
+(0,1)\in F_2 $ et $ (1,0)+(0,1 )=(1,1 )\notin F_1\cup F_2 . $
+\end{rem}
+
+\begin{df}
+Soient $ E $ un $ \mathbb{K}- $espace vectoriel et $ \mathcal{F}=(v_i)_{1\leq i\leq m} $ une famille finie de vecteurs de $ E $. On appelle sous-espace engendré par $ \mathcal{F} $ et on note $ Vect(\mathcal{F}) $ ou $ Vect(v_1,..., v_m) $ l 'ensemble des combinaisons linéaires des vecteurs $ v_1,..., v_m $ . Autrement dit,
+\[ Vect(v_1,..., v_m)=\left\lbrace\alpha_1v_1+...+\alpha_mv_m |(\alpha_1,...,\alpha_m)\in\mathbb{K}^m \right\rbrace.  \]
+Inversement, la famille $ (v_i)_{1\leq i\leq m} $ est dite génératrice du sous-espace vectoriel
+$ Vect (v_1,..., v_m) $ de $ E $.
+\end{df}
+\begin{exm}
+Si $ u $ est un vecteur d'un $ \mathbb{K}- $espace vectoriel
+$ E $ alors
+\[ Vect (u)=\left\lbrace\alpha u | \alpha\in\mathbb{K} \right\rbrace= \mathbb{K}u.  \]
+On retrouve que $ Vect (0_E)=\{0_E \} $ (cas où $ u=0_E $) et si $ u\neq0_E $ alors $ Vect (u) $ est la droite vectorielle engendrée par $ u $.
+\end{exm}
+\begin{exm}
+Considérons à présent deux vecteurs $ u, v $ de l'espace $ E $. On a :
+\[ Vect (u,v)=\left\lbrace\alpha u+\beta v | \alpha\in\mathbb{K}, \beta\in\mathbb{K} \right\rbrace.  \]
+En particulier, si les deux vecteurs $ u $ et $ v $ sont tels que $ u\neq\gamma v $ et $ v\neq\gamma u $ pour tout $ \gamma\in\mathbb{K} $ alors $ Vect (u,v ) $ est appelé plan vectoriel.
+\end{exm}
+\begin{rem}
+Soient $ v_1,...,v_m $ des vecteurs d'un $ \mathbb{K}- $espace vectoriel $ E $ . On a :
+\[ \forall w\in E\quad Vect (v_1,...,v_m)\subset Vect (v_1,...,v_m,w) \]
+puisque $ \alpha_1v_1+\alpha_2v_2+...+\varepsilon_mv_m=\alpha_1v_1+\alpha_2v_2+...+\varepsilon_mv_m+0w $ pour tout $ (\alpha_1,\alpha_2,...,\alpha_m) $ appartenant à $ \mathbb{K}^m $. De plus, pour tout $ w\in E $ le sous-espace $ Vect (v_1,...,v_m ) $ constitue lui-même un sous-espace vectoriel de $ Vect ( v_1,...,v_m,w)  $.
+\end{rem}
+\begin{rem}
+Soient $ u $ et $ v $ deux vecteurs d'un $ \mathbb{K}- $espace $ E $. Pour tout $ (\lambda,\mu)\in\mathbb{K}^2 $,
+$ Vect(\lambda u+\mu v) $ constitue un sous-espace de 
+$ Vect (u,v) $ . En particulier, en prenant $ \lambda=1 $ et 
+$ \mu=0 $ ( respectivement $ \lambda=0 $ et $ \mu=1 $) le sous-espace$  Vect ( u ) $
+( resp. le sous-espace $ Vect (v) $) constitue un sous-espace de $ Vect (u,v) $ .
+\end{rem}
+\section{Indépendance linéaire}
+\begin{df}
+Soit $ \mathcal{F}=(v_i)_{1\leq i\leq p} $ une famille finie de vecteurs d'un $ \mathbb{K}- $espace vectoriel $ E $ .
+\begin{enumerate}
+\item La famille $ \mathcal{F} $ est dite liée si l'on peut trouver des scalaires a1 , $ \alpha_1,\alpha-2,...,\alpha_p $
+appartenant a $ \mathbb{K} $, dont un au moins est non nul tels que
+\[ \alpha_1v_1+\alpha_2v_2+...+\alpha_pv_p=0_E. \]
+On dit également que les vecteurs $ v_1, v_2,...,v_p $ sont linéairement dépendants .
+\item Si la famille n'est pas liée, on dit qu'elle est libre (ou que les vecteurs sont linéairement indépendants) .
+\end{enumerate}
+\end{df}
+\begin{rem}En pratique, pour montrer que la famille $ \mathcal{F}=(v_i)_{1\leq i\leq p} $ est libre, on montre
+que la relation ( appelée relation de liaison)
+\[ \alpha_1v_1+\alpha_2v_2+...+\alpha_pv_p=0_E, \]
+où $ \alpha_1,...,\alpha_p $ appartiennent à $ \mathcal{K} $, entraîne que $ \alpha_1=...=\alpha_P=0_{\mathbb{K}}. $
+\end{rem}
+\begin{exm}Dans $ \mathbb{C}^4 $ , les vecteurs$  v1_=(1,0,1,1) , v_2=(0,2,2i,6) $ et $ v_3= (1 ,i,0,1+3i) $
+où $ i^2=-1 $ , sont liés puisque 
+$ v_1+(i/2) v_2-v_3=0_{\mathbb{C}^4}. $
+\end{exm}
+\begin{exm} Dans $ \mathbb{R}^4 $ , les trois vecteurs $ v_1=(1 ,0,0,0) , v_2=(0,2,0,0) $ et $ v_3=(0,0,0,0) $
+sont liés puisque $ 0v_1+0v_2+v_3=0_{\mathbb{R}^4}. $
+\end{exm}
+\begin{exm} Soit $ n $ un entier non nul. Dans $ \mathbb{K}[X] $ , la famille $ \mathcal{F}_n= (1_{\mathbb{K}[X]} ,X,X^2,...,X^n) $
+est libre puisque la relation
+\[ \alpha_01_{\mathbb{K}[X]}+\alpha_1X+\alpha_2X^2+...+\alpha_nX^n=0_{\mathbb{K}[X]} \]
+où $ \alpha_0,\alpha_1,...,\alpha_n $ appartiennent à $ \mathbb{K} $, entraîne que $ \alpha_0=\alpha_1=\alpha_2=...=\alpha_n=0_{}  $
+\end{exm}
+\begin{exm} Dans $ \mathbb{C}^4 $ , la famille $  \mathcal{F}= (v_1,v_2,v_3) $ où $ v_1= (1,0,0,0) , v_2=(0,1,0,0) $ et
+$ v_3=(0,0,1,0) $ est libre puisque la relation
+\[ \alpha_1(1,0,0,0)+\alpha_2(0,1,0,0)+\alpha_3(0,0,1,0)=(0,0,0,0) \]
+où $ \alpha_1,\alpha_2,\alpha_3 $ appartiennent à $ \mathbb{K} $, s'écrit : $ (\alpha_1,\alpha_2,\alpha_3,0 )=(0,0,0,0),$ d'où ( par identification ) : $ \alpha_1=\alpha_2=\alpha_3=0. $
+\end{exm}
+\begin{df} Soient $ E $ un $ \mathbb{K}- $espace vectoriel et $ \mathcal{B} $ une famille d’éléments de $ E $. On dit que $ \mathcal{B} $ est une base algébrique (ou plus simplement une
+base) de $ E $ si $ \mathcal{B} $ est à la fois libre et génératrice de $ E $.
+\end{df}
+\begin{prop} Soit $ E $ un $ \mathbb{K}- $espace vectoriel.
+ La famille finie $ \mathcal{B}=\{e_1,e_2,...,e_n\} $ est une base de $ E $ si et seulement si 
+\[ \forall x\in E \exists!(\alpha_1,\alpha_2,...,\alpha_n)\in\mathbb{K}^n\qquad x=\alpha_1e_1+\alpha_2e_2+...+\alpha_ne_n. \]
+\end{prop}
+\begin{proof}exercice
+\end{proof}
+\begin{exm} Tout vecteur $ (x_1,X_2,...,X_n) $ de l'espace produit $ \mathbb{K}^n $ où $ n\in\mathbb{N}^* $ , s'écrit sous la forme :
+\[ (x_1,x_2,...,x_n)=x_1(1,0,...,0)+x_2(0,1,...,0)+...+x_n(0,0,...,1)=x_1e_1+x_2e_2+...+x_ne_n, \]
+où on a noté $ e_1=(1,0,...,0 ) , e_2=(0,1,...,0 ),..., e_n=( 0,0,...,1) . $ Cette décomposition étant unique, la famille $ \mathcal{B}=(e_1,e_2,...,e_n) $ est une base de $ \mathbb{K}^n $ .On l'appelle base canonique de $ \mathbb{K}^n $ . Les scalaires $ x_1,x_2,...,x_n\in\mathbb{K} $ sont donc
+les coordonnées du vecteur $ (x_1,x_2,..., x_n) $ de $ \mathbb{K}^n $ par rapport à la base canonique.
+\end{exm}
+\begin{exm} Tout polynôme $ P $ de $ \mathbb{K}_n[X] $ où 
+$ n\in N $, s'écrit sous la forme suivante :
+\[ P=a_01_{\mathbb{K}[x]}+a_1X+a_2X^2+...+a_nX^n \]
+et cette décomposition est unique. Par conséquent, la famille finie
+\[ \mathcal{B}_n=(X^i)_{0\leq i\leq n}=\left(1_{\mathbb{K}[X]},X,X^2,...,X^n \right)  \]
+est une base de $ \mathbb{K}_n[X] $ . On l'appelle base canonique de $ \mathbb{K}_n[X] $ . Les éléments
+$ a_1,a_2 ,...,a_n $ de $ \mathbb{K} $ sont donc les coordonnées de $ P $ par rapport à la base canonique.
+\end{exm}
+\begin{df}(Dimension d'un espace vectoriel)
+Soit $ E $ un espace vectoriel de dimension finie sur $ \mathbb{K} $ non réduit au vecteur nul. On appelle dimension
+cardinal d'une base de $ E $, c 'est-à-dire :
+\[ \dim_{\mathbb{K}}(E)=\text{card}(\mathbb{B}) \]
+où $ \mathcal{B} $ désigne une base quelconque de $ E $. On convient que $ \dim_{\mathbb{K}}(\{0_E\})=0 $
+\end{df}
+\begin{exm}
+Soit $ F $ le sous-espace de $ \mathbb{R}^3 $ défini par
+\[ F=\left\lbrace (x_1,x_2,x_3)\in\mathbb{R}^3 | -x_1-x_2+x_3=0\right\rbrace.  \]
+La représentation de $ F $ est dite cartésienne. Soit $ (x_1,x_2,x_3 ) $ avec $ x_1\in\mathbb{R},x_2\in\mathbb{R},x_3\in\mathbb{R} $, un vecteur appartenant à $ F $. De $ -x_1-x_2+x_3=0 $, il vient
+$ x_3=x_1+x_2  $. On en déduit :
+\[ (x_1,x_2,x_3)=(x_1,x_2,x_1+x_2)=x_1(1,0,1)+x_2(0,1,1). \]
+Tout vecteur de $ F $ s'écrit comme une combinaison linéaire des deux vecteurs
+$ v_1=(1,0,1 ) $ et $  v_2=(0,1,1) $ , c'est-à-dire 
+$ F=Vect (v_1,v_2) $ , et les deux vecteurs $ v_1 $ et $ v_2 $ forment une famille libre. Ainsi, $ \dim_{\mathbb{R}}(F)=2 $. Le sous-espace $ F $ est donc un plan vectoriel de $ \mathbb{R}^3 $ .
+\end{exm}
+\section{Somme de sous-espaces vectoriels}
+\begin{df}
+Soient $ E $ un $  $espace et $ F, G $ deux sous-espaces de $ E $.
+\begin{enumerate}
+\item La somme de $ F $ et $ G $ est le sous-espace de $ E $, noté $ F+G $, défini par 
+\[ F+G=\left\lbrace x_F+x_G |\quad x_F\in F, x_G\in G. \right\rbrace  \]
+\item En particulier la somme de $F $ et  $G $ est dite directe si
+\[ \forall x\in F+G\quad \exists! x_F\in F\quad \exists! x_G\in G\quad x=x_F+x_G. \]
+Les vecteurs $ x_F $ et $ x_G $ sont alors appelés les composants du vecteur $ x $ respectivement dans $ F $ et dans $ G $ et le sous-espace $ F + G $ se note $ F\oplus G $.
+\item Enfin, on dit que $ F $ et $ G $ sont supplémentaires dans $ E $ si $ F\oplus G=E $.
+\end{enumerate}
+\end{df}
+\begin{prop} Soient $ E $ un $ \mathbb{K}- $espace de dimension finie et $ F, G $ deux sous-espaces de $ E $. Si $ F $ et $ G $ sont supplémentaires dans $ E $ alors 
+\[ \dim_{\mathbb{K}}(E)=\dim_{\mathbb{K}}(F)+\dim_{\mathbb{K}}(G). \]
+\end{prop}
+\begin{proof} Puisque $ E $ est de dimension finie, ses deux sous-espaces $ F $ et $ G $ le sont aussi. Notons $ p=\dim_{\mathbb{K}}(F) $ et $ q=\dim_{\mathbb{K}}(G). $  Considérons $ \mathcal{B}_F=(f_i)_{1\leq i\leq p} $ une base de $ F $ et $ \mathcal{B}_G=(g_i)_{1\leq i\leq q} $ une base de $ G $. Les deux sous-espaces $ F $ et $ G $ étant supplémentaires dans $ E $, pour tout $ x $ appartenant à $ E, $
+\[ \exists!x_F\in F\quad \exists!x_G\in G\quad x=x_F+x_G. \]
+Le vecteur $ x_F $ appartenant à $ F $, il existe $ (\alpha_1,...,\alpha_p)\in\mathbb{K}^p $ tel que $ x_F=\alpha_1f_1+...+\alpha_pf_p $ · De même, $ x_G $ appartenant à $ G $, il existe $ (\beta_1,...,\beta_q)\in\mathbb{K}^q $
+tel que $ x_G=\beta_1g_1+...+\beta_qg_q $. On a ainsi obtenu, pour tout $ x\in E $, l'existence et l'unicité d'un 
+$ (p+q)-$uplet $ (\alpha_1,...,\alpha_p,\beta_1,...,\beta_q)\in \mathbb{K}^{p+q} $  tel que
+\[ x=\alpha_1f_1+...+\alpha_pf_p+\beta_1g_1+...+\beta_qg_q. \]
+On en déduit, que la famille $ \mathcal{B}=(\mathcal{B}_F,\mathcal{B}_G) $ constitue
+une base de l'espace $ E $, et donc que
+\[ \dim_{\mathbb{K}}(E)=\dim_{\mathbb{K}}(F)+\dim_{\mathbb{K}}(G) \] puisque  
+$  \text{card}(\mathcal{B})=\text{card}(\mathcal{B}_F)+\text{card}(\mathcal{B}_G). $
+\end{proof}
+\begin{prop}
+Soient $ E $ un $ \mathbb{K}- $espace et $ F, G $ deux sous-espaces de $ E $ .
+Une condition nécessaire et suffisante pour que la somme de $ F $ et $ G $ soit est que leur intersection soit réduite au vecteur nul, c 'est-à-dire :
+\[ F\cap G=\left\lbrace0_E \right\rbrace.  \]
+\end{prop}
+\begin{exm}
+La seule application de $ \mathbb{R} $ dans $ \mathbb{R} $ qui soit à la fois paire et impaire est l'application nulle. En notant $ F $ l'ensemble des applications paires et $ G $ celui des applications impaires, cela signifie que 
+\[ F\cap G=\left\lbrace x\in\mathbb{R}\longmapsto 0\in\mathbb{R} \right\rbrace.  \]
+De plus, il a été établi que toute application de $ \mathbb{R} $ dans $ \mathbb{R} $ pouvait s'écrire comme
+la somme d'une application paire et d'une application impaire.  On en déduit que les deux sous-espaces $ F $ et $ G $ sont supplémentaires dans $ \mathcal{A}(\mathbb{R},\mathbb{R}) $, ce que l'on note :
+\[ \mathcal{A}(\mathbb{R},\mathbb{R})=F\oplus G. \]
+\begin{exm}
+Considérons dans $ \mathbb{R}^3 $ les plans vectoriels $ F $ et $ G $ définis par
+\[ F=\mathbb{R}\times\mathbb{R}\times\{0\}=\left\lbrace(x_1,x_2,0)\in\mathbb{R}^3 |\quad x_1\in\mathbb{R}, x_2\in\mathbb{R} \right\rbrace,  \]
+\[ G=\mathbb{R}\times\{0\}\times\mathbb{R}=\left\lbrace(x_1,0,x_3)\in\mathbb{R}^3 |\quad x_1\in\mathbb{R}, 3_2\in\mathbb{R} \right\rbrace.  \]
+Déterminons le sous-espace $ F+G $. Soient $ (x_1,x_2,0) $ avec $  x_1\in\mathbb{R} $ $  x_2\in\mathbb{R} $ un
+vecteur de $ F $ et $ ( y_1,0,y_3) $ avec $  y_1\in\mathbb{R} $ et $  y_3\in\mathbb{R} $ un vecteur de $ G $. On a :
+\[ (x_1,x_2,0)+(y_1,0,y_3)=(x_1+y_1,x_2,y_3). \]
+En particulier, lorsque $ y_1=0 $ et lorsque $ x_1,x_2 $ et $ y_3 $ parcourent $ \mathbb{R} $, le vecteur $ (x_1+y_1,x_2,y_3) $ décrit tout l'espace $ \mathbb{R} $ . On a donc :
+\[ F+G=\mathbb{R}^3. \]
+De plus, on vérifie facilement que $ F\cap G =\mathbb{R}(1,0,0)  $. Ainsi, la somme de F
+et $ G $ n'est pas directe et, a fortiori, les deux sous-espaces $ F $ et $ G $ ne sont pas
+supplémentaires dans $ \mathbb{R}^3 $.
+\end{exm}
+\end{exm}
+\section{Exercices résolus}
+\begin{exo} Parmi les ensembles suivants, lesquels sont, ou ne sont pas, des sous-espaces vectoriels? 
+\begin{enumerate}
+\item $ E_1=\{(x,y,z)\in\mathbb R^3;\ x+y+3z=0\}, $ \item $ E_2=\{(x,y,z)\in\mathbb R^3;\ x+y+3z=2\}, $ \item $ E_3=\{(x,y,z,t)\in\mathbb R^4;\ x=y=2z=4t\}, $ \item $ E_4=\{(x,y)\in\mathbb R^2;\ xy=0\}, $ \item $ E_5=\{(x,y)\in\mathbb R^2;\ y=x^2\}, $ \item $ E_6=\{(x,y,z)\in\mathbb R^3;\ 2x+3y-5z=0\}\cap\{(x,y,z)\in\mathbb R^3;\ x-y+z=0\}, $ \item $ E_7=\{(x,y,z)\in\mathbb R^3;\ 2x+3y-5z=0\}\cup\{(x,y,z)\in\mathbb R^3;\ x-y+z=0\}. $
+\end{enumerate}
+\end{exo}
+\begin{sol}
+\begin{enumerate}
+\item Soient $ X=(x,y,z) $ et $ X'=(x',y',z') $ éléments de $ E_1 $. Alors, $ X+X'=(x+x',y+y',z+z') $ est aussi élément de $ E_1 $. En effet,
+\[ (x+x')+(y+y')+3(z+z')=(x+y+3z)+(x'+y'+3z')=0. \] 
+De même, pour tout $ \lambda\in\mathbb R $, on a $ \lambda X=(\lambda x,\lambda y,\lambda z) $ est élément de $ E_1 $ puisque 
+\[ \lambda x+\lambda y+3\lambda z=\lambda(x+y+3z)=0. \]
+$ E_1 $ est donc un sous-espace vectoriel de $ \mathbb{R}^3 $. 
+\item  $ E_2 $ n'est pas un sous-espace vectoriel de $ \mathbb{R}^3 $ car $ 0⃗=(0,0,0) $ n'est pas élément de $ E_2 $. 
+\item Soient $ X=(x,y,z,t) $ et $ X'=(x',y',z',t') $ deux éléments de $ E_3 $. Alors $ X+X'=(x+x',y+y',z+z',t+t') $ est aussi élément de $ E_3 $. En effet, 
+\[ x+x'=y+y'=2z+2z'=2(z+z')=4t+4t'=4(t+t'). \]
+De même, on prouve que pour tout $ \lambda\in\mathbb R $, $ \lambda X $ est élément de $ E_3. E_3 $ est donc un sous-espace vectoriel de $ \mathbb{R}^4 $. 
+\item  $ E_4 $ n'est pas un sous-espace vectoriel de $ \mathbb{R}^2 $ car il n'est pas stable par addition. En effet, $ X=(1,0) $ et $ Y=(0,1) $ sont tout les deux éléments de $ E_4 $, mais $ X+Y=(1,1) $ n'est pas élément de $ E_4 $. 
+\item Les éléments $ (1,1) $ et $ (−1,1) $ sont éléments de $ E_5 $. Si on effectue leur somme, on trouve $ (0,2) $ qui n'est pas élément de $ E_5 : E_5 $ n'est pas un sous-espace vectoriel de $ \mathbb{R}^2 $. Plus généralement, un sous-espace vectoriel de $ \mathbb{R}^2 $ est une droite passant par $ (0,0) $, ou $ \mathbb{R}^2 $ lui-même, ou encore le singleton $ \{(0,0)\}. E_5 $ est une parabole et n'est donc pas un sous-espace vectoriel.
+\item Posons $ F=\{(x,y,z)\in\mathbb{R}^3; 2x+3y−5z=0\} $ et $ G=\{(x,y,z)\in\mathbb{R}^3; x−y+z=0\}. $ Comme à la première question, on montre que $ F $ et $ G $ sont deux sous-espaces vectoriels de $ \mathbb{R}^3 $. Leur intersection $ F\cap G $ est donc un sous-espace vectoriel de $ \mathbb{R}^3 $.  
+\item Cette fois, aucun théorème du cours ne dit qu'une réunion de deux sous-espaces vectoriels reste un sous-espace vectoriel. Ici, prenons $ (5,0,2)\in F\subset F\cup G $ et $ (1,1,0)\in G\subset F\cup G $. Alors $ (5,0,2)+(1,1,0)=(6,1,2) $ n'est pas élément de $ F $ car $ 12+3−10=5\neq0 $, et il n'est pas non plus élément de $ G $ car $ 6−1+2=7\neq0 $. Ainsi, $ F\cup G $ n'est pas stable par addition et n'est donc pas un sous-espace vectoriel de $ \mathbb{R}^3 $. Plus généralement, on prouve qu'une réunion de deux sous-espaces vectoriels est un sous-espace vectoriel si et seulement si l'un des deux est inclus dans l'autre. 
+\end{enumerate}
+\end{sol}
+\begin{exo}
+Soit $ E $ un espace vectoriel et soient $ F $ et $ G $ deux sous-espaces vectoriels de $ E $. Montrer que $ F\cup G $ est encore un sous-espace vectoriel de $ E $ si et seulement si $ F\subset G $ ou $ G\subset F $.
+\end{exo}
+\begin{sol}
+Bien sûr, si $ F\subset G, F\cup G=G $ est un sous-espace vectoriel ce qui prouve une implication. Réciproquement, supposons que $ F\cup G $ est un sous-espace vectoriel de $ E $ et que pourtant $ F $ n'est pas inclus dans $ G $ et $ G $ n'est pas inclus dans $ F $. Prenons $ x $ dans $ F∖G $ et $ y $ dans $ G∖F $. Alors, puisque $ F\cup G $ est un sous-espace vectoriel, il est stable par addition et donc $ x+y\in F\cup G $. Mais, si $ x+y $ est dans $ F $, alors $ y=(x+y)-x\in F $ (car $ F $ est un s.e.v) ce qui n'est pas le cas. De même, si $ x+y $ est dans $ G $, alors $ x=(x+y)-y\in G $ ce qui est impossible. On obtient donc une contradiction et l'autre implication.
+\end{sol}
+\begin{exo}
+Donner un système d'équations des espaces vectoriels engendrés par les vecteurs suivants : 
+\begin{enumerate}
+\item $ u_1=(1,2,3), $
+\item $ u_1=(1,2,3) $ et $ u_2=(-1,0,1), $
+\item $ u_1=(1,2,0),  u_2=(2,1,0)$ et $ u_3=(1,0,1). $ 
+\end{enumerate}
+\end{exo}
+\begin{sol} \begin{enumerate}
+\item On note $ F $ le sous-espace vectoriel engendré par $ u_1 $. Alors \[ (x,y,z)\in F\iff \exists a\in \mathbb R,\ \left\{
+\begin{array}{rcl}
+x&=&a\\
+y&=&2a\\
+z&=&3a\\
+\end{array}
+\right.
+\iff \exists a\in\mathbb R
+\left\{
+\begin{array}{rcl}
+a&=x\\
+y-2x&=&0\\
+z-3x&=&0
+\end{array}\right. \]\[ \iff \left\{
+\begin{array}{rcl}
+y-2x&=&0\\
+z-3x&=&0
+\end{array}\right. \] On a bien trouvé un système d'équations de $ F $. \item On note $ G $ le sous-espace vectoriel engendré par $ u_1 $ et $ u_2 $. Alors, \[ (x,y,z)\in G\iff \exists (a,b)\in\mathbb R^2,\ 
+\left\{
+\begin{array}{rcl}
+x&=&a-b\\
+y&=&2a\\
+z&=&3a+b\\
+\end{array}\right. \]\[ \iff 
+\exists (a,b)\in\mathbb R^2,\ 
+\left\{
+\begin{array}{rcl}
+a&=&y/2\\
+b&=&z-3y/2\\
+0&=&x-2y+z
+\end{array}\right. \]\[ \iff x-2y+z=0. \] Cette dernière équation est une équation de $ G $. \item On note $ H $ le sous-espace engendré par $ u_1, u_2 $ et $ u_3 $. Alors, \[ (x,y,z)\in H\iff\exists(a,b,c)\in\mathbb R^3,\ 
+\left\{
+\begin{array}{rcl}
+x&=&a+2b+c\\
+y&=&2a+b\\
+z&=&c\\
+\end{array}\right. \] \[ \iff
+\exists(a,b,c)\in\mathbb R^3,\ 
+\left\{
+\begin{array}{rcl}
+a+2b+c&=&x\\
+-3b-2c&=&y-2x\\
+c&=&z
+\end{array}\right. \] On obtient un système triangulaire dont aucun des pivots n'est nul. Autrement dit, le système admet toujours une solution, quelles que soient les valeurs de $ x, y $ et $ z $. Ainsi, $ H=\mathbb{R}3 $. 
+\end{enumerate}
+
+\end{sol}
+\chapter{Les applications linéaires}
+\section{Application linéaire}
+\begin{df}
+Soient $ E $ et $ F $ deux $ \mathbb{K}- $espace vectoriels. On appelle application linéaire de $ E $ vers $ F $ toute application $ f: E\longmapsto F $ vérifiant
+\begin{itemize}
+\item $ \forall x_1\in E, \forall x_2\in E \quad f(x_1+_{E}x_2)=f(x_1)+_{F}F(x_2), $
+\item $ \forall x\in E, \forall\alpha\in\mathbb{K}\quad f(\alpha._{E}x)=\alpha._{F}f(x). $
+\end{itemize}
+Une application linéaire est encore appelée morphisme d'espaces vectoriels. On note $ \mathcal{L}_{\mathbb{K}}(E,F) $ l'ensemble des applications linéaires de $ E $ dans $ F $. On appelle forme linéaire une application linéaire d'un $ \mathbb{K}- $espace $ E $ dans $ K $
+\end{df}
+\begin{prop} Soient $ E, F $ deux $ \mathbb{K}- $espaces vectoriels et $ f $ une application de $ E $ vers $ F $. Une condition nécessaire et suffisante pour que $ f $ soit
+un e application linéaire est que, pour tous vecteurs $ x_1, x_2 $  de $ E $ et pour tous scalaires $ \alpha,\beta $ de $ \mathbb{K} $,
+\[ f(\alpha._{E}x_1+_{E}\beta._{E}x_2)=\alpha._{F}f(x_1)+_{F}\beta._{F}F(x_2) \]
+\end{prop}
+\begin{proof}exercice
+\end{proof}
+\begin{exm}
+L'application qui à un polynôme $ P\in\mathbb{K}[X] $ associe son polynôme dérivé
+$P'\in\mathbb{K}[X] $ est un morphisme de l'espace $ \mathbb{K}[X] $ dans lui-même puisque pour
+tous $ P, Q\in\mathbb{K}[X] $ et pour tous $ \alpha,\beta\in\mathbb{K} $,
+\[ \left( \alpha.P+\beta.Q\right)'=\alpha.P'+\beta.Q'. \]
+\end{exm}
+\begin{exm}
+Soit $ a\in\in\mathbb{K} $. L'application $ f : x\in\mathbb{K}\longmapsto ax\in\mathbb{K}  $ est une application linéaire car pour tous $ x_1,x_2\in\mathbb{K} $ et pour tous $ \alpha,\beta\in\mathbb{K} $
+\[ f\left(\alpha x_1+\beta x_2 \right)=a\left(\alpha x_1+\beta x_2 \right)=a(\alpha x_1)+a(\beta x_2)=\alpha f(x_1)+\beta f(x_2).  \]
+En revanche, l'application $ f : x\in\mathbb{K}\longmapsto x^2\in\mathbb{K} $ n'est pas linéaire car
+\[ f(x_1+x_2)=(x_1+x_2)^2=x_1^2+x_2^2+2x_1x_2\neq f(x_1)+f(x_2), \textbf{si}\quad x_1\neq0\quad\textbf{et}\quad x_2\neq0.  \]
+\end{exm}
+\begin{prop}
+Soient $ E, F $ deux $ \mathbb{K}- $espaces vectoriels et $ f $ une application linéaire de $ E $ dans $ F $. Pour tous vecteurs $ v_1,v_2,...,v_k $ de $ E $ et pour tous scalaires $ \alpha_1,\alpha_2,...,\alpha_k $ de $ \mathbb{K} $,
+\[ f\left(\alpha_1v_1+\alpha_2v_2+...+\alpha_kv_k \right)=\alpha_1f(v_1)+\alpha_2f(v_2)+...+\alpha_kf(v_k).  \]
+\end{prop}
+\begin{proof}Par récurrence sur $ k $.
+
+\end{proof}
+\section{Image et noyau}
+Soient $ f $ une application de $ E $ dans $ F $ et $ A $ un sous-ensemble de $ E $. On appelle que l'image (directe ) par $ f $ de $ A $, que l'on note
+$ f(A) $, est le sous-ensemble de $ F $ défini comme suit :
+\[ f(A)=\left\lbrace f(x) |\quad x\in A \right\rbrace.  \]
+\begin{prop} Soient $ E $ et $ F $ deux $ \mathbb{K}- $espaces vectoriels. Si $ A $ est un sous-espace vectoriel de $ E $ et si $ f $ est une application linéaire de $ E $ dans $ F $ alors $ f(A) $ est un sous-espace vectoriel de $ F $.
+\end{prop}
+\begin{proof} L'ensemble $ f (A) $ est non vide puisque le sous-espace vectoriel $ A $ est non vide ( par définition d 'un sous-espace vectoriel ) . Soient $ y_1, y_2 $ deux
+vecteurs de $ f(A) $ et $ \alpha,\beta $ deux scalaires. Montrons que le vecteur $ \alpha y_1+\beta y_2 $
+appartient à $ f(A) $ . Puisque $ y_1\in f(A) $ , il existe $ x_1\in A $ tel que $ y_1=f(x_1) $ . De même, puisque $ y_2\in f(A) $ , il existe $ x_2\in A $ tel que $  y_2=f(x_2) $ . On a alors :
+\[ \alpha y_1+\beta y_2=\alpha f(x_1)+\beta f(x_2)=f\left(\alpha x_1+\beta x_2 \right)  \]
+car $ f $ est linéaire. De plus, le vecteur $ \alpha x_1+\beta x_2 $ appartient à $ A $ puisque $ A $ est
+un sous-espace vectoriel de $ E $. On a ainsi trouvé un vecteur appartenant à $ A $, à savoir le vecteur $ \alpha x_1+\beta x_2 $, qui a pour image le vecteur $ \alpha y_1+\beta y_2 $ par $ f $, ce
+qui montre que $ \alpha y_1+\beta y_2\in f(A).  $
+\end{proof}
+\begin{df}(Noyau d'une application linéaire)
+Soient $ E,F $ deux $ \mathbb{K}- $espaces vectoriels et $ f $ une application linéaire de $ E $ dans
+L'ensemble des vecteurs de $ E $ qui ont pour image $ 0_F $
+par $ f $ est appelé noyau de $ f $ et se note $ \ker f $. En d'autres termes,
+\[ \ker f=\left\lbrace x\in E |\quad f(x)=0_F\right\rbrace.  \]
+\end{df}
+\begin{prop}
+Soient $ E $ et $ F $ deux $ \mathbb{K}- $espaces vectoriels. Si $ f $ est une application linéaire de $ E $ dans $ F $ alors $ \ker f $ est un sous-espace vectoriel de $ E $.
+\end{prop}
+\begin{proof} La propriété de linéarité de l'application $ f $ nous assure que l'ensemble $ \ker f $
+n'est jamais vide. Soient $ x_1, x_2 $ deux vecteurs de $ \ker f $ et $ \alpha,\beta $ deux scalaires. Montrons que le vecteur $ \alpha x_1+\beta x_2 $ appartient à $ \ker f $. Utilisant la linéarité de $ f $, on a :
+\[ f\left(\alpha x_1+\beta x_2 \right)=\alpha f(x_1)+\beta f(x_2)=0_F  \]
+car $ f(x_1)=f(x_2)=0_F $ (les vecteurs $ x_1, x_2 $ appartiennent en effet à $ \ker f $.
+Le vecteur $ \alpha x_1+\beta x_2 $ a ainsi pour image par $ f $ le vecteur nul. Il appartient
+donc à $ \ker f $.
+\end{proof}
+\begin{exm}
+On considère l'endomorphisme $ f $ de $ \mathbb{R} $ qui au vecteur $ x=(x_1,x_2,x_3 ) $ associe le vecteur $ y=(x_1+x_2,x_2+x_3,x_1+2x_2+x_3). $  Cherchons le noyau et l'image de $ f $. Commençons par chercher le noyau. Soit
+$ x=(x_1,x_2,x_3)\in\ker f. $ On a :
+\[ f(x)=(0,0,0) \]
+Autrement dit,$  x_1,x_2,x_3 $ vérifient :
+$ \systeme{x_1+x_2=0,x_2+x_3=0,x_1+2x_2+x_3=0}$\\
+Remarquons que la dernière équation est la somme des deux premières. On peut ainsi l'éliminer. On se ramène à un système de deux équations à trois inconnues
+(qui sont $ x_1 , x_2 $ et $ x_3 $) . Pour résoudre ce système, on doit privilégier deux inconnues (disons $ x_1 $ et $ x_2 $ ) et exprimer la solution en fonction de la troisième. On obtient $ x_1=x_3 $ et $ x_2=-x_3  $. Un vecteur $ x = (x_1,x_2,x_3) $ appartenant à
+$\ker f $ s'écrit ainsi sous la forme générale :
+\[ x=(x_3,-x_3,x_3)=x_3(1,-1,1) \]
+avec $ x_3\in \mathbb{R}. $ Le noyau de $ f $ est donc la droite vectorielle de $ \mathbb{R}^3 $ engendrée par
+le vecteur (non nul) $ u=(1,-1,1) $ , ce que l'on note :
+\[ \ker f=\mathbb{R}u \quad avec \quad u=(1,-1,1) \]
+C'est un sous-espace de dimension 1 . Déterminons maintenant l'image de $ f $. Soit $ y=(y_1,y_2,y_3) $ avec $ y_1,y_2,y_3 $ des réels, un vecteur appartenant à $ \Im f $. Ses coordonnées vérifient la relation $ y_3-y_1-y_2 = 0 $ puisque
+\[ (x_1+2x_2+x_3)-(x_1+x_2)-(x_2+x_3)=0. \]
+C'est l'équation d'un plan vectoriel de $ \mathbb{R}^3 $ . On a donc :
+\begin{equation}\label{1}
+\Im f \subset \left\lbrace (y_1,y_2,y_3)\in\mathbb{R}^3 |\quad y_3-y_1-y_2=0\right\rbrace, 
+\end{equation}
+ce qui signifie en particulier que l'image de $ f $ est un sous-espace de dimension au plus égale à 2. Remarquons que $ \Im f $ contient les vecteurs $ c_1=(1,0,1),
+c_2=(1,1,2) $ et $ c_3=(0,1,1) $ qui sont les images des trois vecteurs de la base canonique de $ \mathbb{R}^3 $ , c'est-à-dire :
+\[ c_1=f((1,0,0)),\quad c_2=f((0,1,0)),\quad c_3=f((0,0,1)). \]
+Les trois vecteurs $ c_1,c_2,c_3 $ sont liés puisque $ c_2= c_1+c_3 $ . Les deux vecteurs $ c_1 $ et $ c_3 $ ne sont pas colinéaires ; ils forment ainsi une famille libre. On a donc :
+\begin{equation}\label{2}
+Vect (c_1,c_3)\subset\Im f.
+\end{equation}
+L'image de $ f $ est un sous-espace de dimension au moins égale à 2. En combinant \eqref{1} et \eqref{2} on en déduit que l'image de $ f $ est un sous-espace de dimension 2
+et
+\[ \Im f= \left\lbrace (y_1,y_2,y_3)\in\mathbb{R}^3 |\quad y_3-y_1-y_2=0\right\rbrace=Vect (c_1,c_3).  \] L'application $ f $ n'est ni injective puisque $ \ker f\neq \{0_{\mathbb{R}^3}\} $ , ni surjective puisque
+l'ensemble $ \Im f $ est strictement inclus dans $ F $.
+\end{exm}
+\section{Rang d'une application linéaire}
+\begin{df} Soient $ E $ un $ \mathbb{K}- $espace vectoriel de dimension finie et $ F $ un $ \mathbb{K}- $espace vectoriel.  Le rang d'une application linéaire de $ E $ dans $ F $ est la dimension de l'image de $ f. $ On le note $ rg f. $ Autrement dit,
+\[ rg f=\dim_{\mathbb{K}}(\Im f). \]
+\end{df}
+\begin{theo} (du rang) 
+Soient $ E $ un $ \mathbb{K}- $espace vectoriel de dimension finie et $ F $ un $ \mathbb{K}- $espace vectoriel
+non nécessairement de dimension finie . Pour toute application linéaire de $ E $ dans $ F $, on a :
+\[ \dim_{\mathbb{K}}(E)=rg f+\dim_{\mathbb{K}}(\ker f).  \]
+\end{theo}
+\begin{proof}exercice
+\end{proof}
+\begin{rem} Supposons $ f $ surjective (c'est-à-dire $ rg f = \dim_{\mathbb{K}}(F) $) . On a alors grâce au théorème du rang,
+\[ \dim_{\mathbb{K}}(E)=\dim_{\mathbb{K}}(F)+\dim_{\mathbb{K}}(\ker f)\geq\dim_{\mathbb{K}}(F). \]
+puisque $ \dim_{\mathbb{K}}(\ker f)\geq0 $ On a ainsi l'implication suivante :
+\begin{equation}
+f \text{est surjective}\Longrightarrow \dim_{\mathbb{K}}(E)\geq\dim_{\mathbb{K}}(F).
+\end{equation}
+\end{rem}
+\begin{rem}
+Supposons $ f $ injective (c'est-à-dire $ \ker f=\{0_E\} $) ou encore $ \dim_{\mathbb{K}}(\ker f) $ Grâce au théorème du rang,
+\[ \dim_{\mathbb{K}}(E)=\dim_{\mathbb{K}}(\Im f)\leq\dim_{\mathbb{K}}(F) \]
+puisque $ \Im f $ est un sous-espace de $ F $. On a ainsi l'implication suivante :
+\begin{equation}
+f \text{est injective}\Longrightarrow \dim_{\mathbb{K}}(E)\leq\dim_{\mathbb{K}}(F).
+\end{equation}
+
+\end{rem}
+\begin{rem} En combinant les deux résultats précédents, on obtient
+\[ f \text{est bejective}\Longrightarrow \dim_{\mathbb{K}}(E)=\dim_{\mathbb{K}}(F). \]
+\end{rem}
+\section{Exercices résolus}
+\begin{exo} Dire si les applications suivantes sont des applications linéaires : \begin{enumerate}
+\item $ f:\mathbb R^2\to\mathbb R^3,\ (x,y)\mapsto (x+y,x-2y,0), $ \item $ f:\mathbb R^2\to\mathbb R^3,\ (x,y)\mapsto (x+y,x-2y,1), $ \item $ f:\mathbb R^2\to\mathbb R,\ (x,y)\mapsto x^2-y^2, $ \item $ f:\mathbb R[X]\to \mathbb R^2,\ P\mapsto \big(P(0),P'(1)\big). $
+\end{enumerate}
+\end{exo}
+\begin{sol}\begin{enumerate}
+\item  $ f $ est une application linéaire. Prenons $ u=(x,y) $ et $ v=(x',y') $ dans $ \mathbb{R}^2 $, et $ \lambda\in\mathbb R $. Alors : \begin{eqnarray*}
+f(u+v)&=&\big( (x+x')+(y+y'),(x+x')-2(y+y'),0)\\
+&=&\big(x+y,x-2y,0)+(x'+y',x'-2y',0)\\
+&=&f(u)+f(v).
+\end{eqnarray*} De même, \begin{eqnarray*}
+f(\lambda u)&=&(\lambda x+\lambda y,\lambda x-2\lambda y,0)\\
+&=&\lambda(x+y,x-2y,0)\\
+&=&\lambda f(u).
+\end{eqnarray*}\item $ f $ n'est pas une application linéaire car $ f((0,0))\neq(0,0,0) $. \item $ f $ n'est pas une application linéaire. En effet,\[  f\big((1,0)\big)=1,\ f\big((-1,0)\big)=1\textrm{ et }f\big((0,0)\big)=0\neq f\big((1,0)\big)+f\big((-1,0)\big). \]\item  $ f $ est une application linéaire. En effet, si $ P,Q\in\mathbb R[X] $ et $ \lambda\in\mathbb R $, alors utilisant notamment \[ (P+Q)'(1)=P'(1)+Q'(1)\textrm{ et }(\lambda P)'(1)=\lambda P'(1), \] on déduit facilement que $ f(P+Q)=f(P)+f(Q) $ et que $ f(\lambda P)=\lambda f(P). $
+\end{enumerate}
+\end{sol}
+\begin{exo} On considère l'application linéaire $ f $ de 
+$ \mathbb{R}^3 $ dans $ \mathbb{R}^4 $ définie par \[ f(x,y,z)=(x+z,y-x,z+y,x+y+2z). \]
+\begin{enumerate}
+\item Déterminer une base de $ \Im(f) $. \item Déterminer une base de $ \ker(f) $. \item L'application $ f $ est-elle injective? surjective?  
+\end{enumerate}
+\end{exo}
+\begin{sol}\begin{enumerate}
+\item  Utilisant la définition de $ f $, on a : \begin{eqnarray*}
+f(e_1)&=&(1,-1,0,1)\\
+f(e_2)&=&(0,1,1,1)\\
+f(e_3)&=&(1,0,1,2)\\
+\end{eqnarray*} On sait que la famille $ (f(e_1),f(e_2),f(e_3)) $ est une famille génératrice de $ \Im(f) $. Or, $ f(e_3)=f(e_1)+f(e_2) $ et donc $ f(e_3) $ est combinaison linéaire de $ (f(e_1),f(e_2)) $. Ainsi, la famille $ (f(e_1),f(e_2)) $ est déjà génératrice de $ \Im(f) $. De plus, elle est libre car les deux vecteurs sont non-nuls et ne sont pas proportionnels. On en déduit que $ (f(e_1),f(e_2)) $ est une base de $ \Im(f).  $ \item On a:\[  (x,y,z)\in\ker(f)\iff
+\left\{
+\begin{array}{rcl}
+x+z&=&0\\
+-x+y&=&0\\
+y+z&=&0\\
+x+y+2z&=&0\\
+\end{array}\right.
+\iff\left\{
+\begin{array}{rcl}
+x+z&=&0\\
+y+z&=&0\\
+y+z&=&0\\
+y+z&=&0\\
+\end{array}\right. \]\[ \iff
+\left\{
+\begin{array}{rcl}
+x&=&-z\\
+y&=&-z\\
+z&=&z
+\end{array}\right. \] On en déduit que le vecteur $ (-1,-1,1) $ engendre $ \ker(f) $. Comme il est non-nul, c'est une base de $ \ker(f) $. En particulier, on trouve que $ \ker(f) $ est de dimension 1, ce que l'on peut aussi obtenir en utilisant le théorème du rang. \item $ f $ n'est pas injective, car son noyau n'est pas réduit à $ \{0\} $. $ f $ n'est pas surjective, car son image n'est pas $ \mathbb{R}^4 $ tout entier. En effet, la dimension de $ \Im(f) $ est 2, et non 4. 
+\end{enumerate}
+\end{sol}
+\begin{exo} Soit $ E=\mathbb{R}^3 $. On note $ {\cal B}=\{e_1,e_2,e_3\} $ la base canonique de $ E $ et $ u $ l'endomorphisme de $ \mathbb{R}^3 $ défini par la donnée des images des vecteurs de la base : \[ u(e_1) = -2e_1 +2e_3 \; , u(e_2)=3e_2 \; , u(e_3)=-4e_1 + 4e_3. \] \begin{enumerate}
+\item Déterminer une base de $ \ker u $. u est-il injectif? peut-il être surjectif? Pourquoi? \item Déterminer une base de $ \Im u $. Quel est le rang de $ u $ ?  \item Montrer que $ E=\ker~u\bigoplus \textrm{Im}~u $
+\end{enumerate}
+\end{exo}
+\begin{sol} \begin{enumerate}
+\item On commence par calculer $ u(x,y,z) $. On a \[ u(x,y,z)=u(xe_1+ye_2+ze_3)=xu(e_1)+yu(e_2)+zu(e_3) \] soit \[ u(x,y,z)=(-2x-4z,3y,2x+4z). \] On a donc \[ (x,y,z)\in\ker(u)\iff\left\{
+\begin{array}{rcl}
+-2x-4z&=&0\\
+3y&=&0\\
+2x+4z&=&0\\
+\end{array}
+\right.
+\iff
+\left\{
+\begin{array}{rcl}
+x&=&-2z\\
+y&=&0\\
+z&=&z
+\end{array}\right. \] On a donc $ \ker(u)=vect(-2,0,1) $ et le vecteur $ (-2,0,1) $ est une base de $ \ker(u). \ker(u) $ n'est pas réduit à $ \{0\} $, et donc l'endomorphisme $ u $ n'est pas injectif. Comme $ u $ est un endomorphisme de l'espace vectoriel de dimension finie $ \mathbb{R}^3 $, il n'est pas non plus surjectif, car on a alors \[ u\textrm{ injectif}\iff u\textrm{ surjectif}\iff u\textrm{ bijectif}. \] \item  On sait, d'après le théorème du rang, que $ \Im(u) $ est de dimension 2. On sait aussi que $ \big(u(\mathcal E_1),u(\mathcal E_2),u(\mathcal E_3)\big) $ est une famille génératrice de $ \Im u $. Il suffit donc d'en extraire une famille libre à deux éléments. Mais on vérifie immédiatement que $ \big(u(\mathcal E_1),u(\mathcal E_2)\big) $ est une telle famille. C'est donc une base de $ Im(u) $ qui est de rang 2. \item Il suffit de montrer que la réunion d'une base de $ \ker(u) $ et d'une base de $ \Im(u) $ est une base de $ \mathbb{R}^3 $. Autrement dit, avec les calculs réalisés précédemment, il suffit de voir que la famille $ ((−2,0,1),(−2,0,2),(0,3,0)) $ est une famille libre. C'est très facile et laissé au lecteur... 
+\end{enumerate}
+
+\end{sol}
+\chapter{Les matrices - Systèmes linéaires}
+\section{Calcul matriciel}
+\begin{df} Une matrice à $ n $ lignes et $ p $ colonnes à coefficients dans $ \mathbb{K} $ est un tableau à double entrée 
+ \[ A=\left(
+\begin{array}{cccc}
+a_{1,1}&a_{1,2}&\dots&a_{1,p}\\
+a_{2,1}&a_{2,2}&\dots&a_{2,p}\\
+\vdots&\vdots&&\vdots\\
+a_{n,1}&a_{n,2}&\dots&a_{n,p}
+\end{array}
+\right)  \]
+aussi noté $ A=(a_{i,j})_{1\leq i\leq n,1\leq j\leq p} $ où les éléments $ a_{i,j} $ appartiennent à $ \mathbb{K} $. 
+\end{df}
+\begin{rem} On note $ \mathcal M_{n,p}(\mathbb K) $ l'ensemble des matrices à $ n $ lignes et $ p $ colonnes.
+\end{rem}
+\begin{df} On définit la somme de deux matrices en ajoutant les coefficients termes à termes, et le produit d'une matrice par un scalaire $ \lambda\in\mathbb K $ en multipliant chaque coefficient de la matrice par $ \lambda $. Muni de ces deux opérations, $ \mathcal M_{n,p}(\mathbb K) $ est un espace vectoriel.
+\end{df}
+\begin{df} La dimension de $ \mathcal M_{n,p}(\mathbb K) $ est $ np $. Une base de $ \mathcal M_{n,p}(\mathbb K) $ est donnée par les matrices $ (E_{i,j})_{1\leq i\leq n,1\leq j\leq p} $, où tous les coefficients de la matrice $ E_{i,j} $ sont nuls sauf celui de la $ i- $ème ligne et de la $ j- $ème colonne qui vaut 1. Cette base s'appelle la base canonique de $ \mathcal M_{n,p}(\mathbb K) $. 
+\end{df}
+\begin{rem} Si $ n=p $, on dit que la matrice est carrée et on note simplement $ \mathcal M_n(\mathbb K) $.
+\end{rem}
+\begin{df} Si $ A=(a_{i,j})\in \mathcal M_{m,n}(\mathbb K) $ et si $ B=(b_{j,k})\in\mathcal M_{n,p}(\mathbb K) $, on appelle produit de $ A $ et $ B $ la matrice notée $ AB=(c_{i,j}) $ de $ \mathcal M_{m,p}(\mathbb K) $ définie par 
+\[ c_{i,j}=\sum_{k=1}^n a_{i,k}b_{k,j} \]
+\end{df}
+\begin{rem} Pour tout $ i\in\{1,\dots,m\} $ et tout $ j\in \{1,\dots,p\} $. Remarquons que pour que le produit $ AB $ soit défini, il faut que le nombre de colonnes de $ A $ soit égal au nombre de lignes de $ B $. De plus, même si $ AB $ et $ BA $ sont tous les deux définis, on n'a pas toujours $ AB=BA $.
+\end{rem}
+\begin{df} Une matrice $ A=(a_{i,j})_{1\leq i,j\leq n} $ est diagonale si $ a_{i,j}=0 $ dès que $ i\neq j $. Le produit de deux matrices diagonales est une matrice diagonale. 
+\end{df}
+\begin{df} Une matrice $ A=(a_{i,j})_{1\leq i,j\leq n} $ est triangulaire supérieure si $ a_{i,j}=0 $ dès que $ i>j $. Le produit de deux matrices triangulaires supérieures est une matrice triangulaire supérieure.
+\end{df}
+\begin{df}
+Une matrice $ A=(a_{i,j})_{1\leq i,j\leq n} $ est triangulaire inférieure si $ a_{i,j}=0 $ dès que $ i<j $. Le produit de deux matrices triangulaires inférieures est une matrice triangulaire inférieure.
+\end{df}
+\begin{rem} Muni du produit matriciel et de l'addition de matrices, $ \mathcal M_n(\mathbb K) $ est un anneau. Son élément neutre est la matrice identité $ I_n $, qui est la matrice diagonale n'ayant que des 1 sur sa diagonale.
+\end{rem}
+\begin{prop} Si $ A,B\in\mathcal M_n(\mathbb K) $ sont telles que $ AB=BA $, alors 
+\[ (A+B)^n =\sum_{k=0}^n \binom nk A^k B^{n-k}. \]
+\end{prop}
+\begin{df} Une matrice $ M\in\mathcal M_n(\mathbb K) $ est dite inversible s'il existe $ M'\in\mathcal M_n(\mathbb K) $ telle que 
+\[ MM'=M'M=I_n. \]
+$ M' $ s'appelle l'inverse de $ M $ et est noté $ M^{-1} $.
+\end{df}
+\begin{prop}\begin{itemize}
+\item  L'ensemble des matrices inversibles de taille $ n $ est noté $ GL_n(\mathbb K) $. C'est un groupe pour le produit matriciel appelé le groupe linéaire. 
+ \item Si $ A $ et $ B $ sont inversibles, alors $ AB $ est  inversible d'inverse $ B^{-1}A^{-1} $
+\end{itemize}
+\end{prop}
+\begin{df} Si $ A=(a_{i,j})\in\mathcal M_{n,p}(\mathbb K) $, on appelle transposée de $ A $ la matrice $ A^T=(b_{i,j})\in\mathcal M_{p,n}(\mathbb K) $ définie par 
+\[ b_{i,j}=a_{j,i}. \]
+On a les formules : 
+\[ (A+B)^T=A^T+B^T,\quad (AB)^T=B^TA^T. \]
+\end{df}
+\section{Matrices et applications linéaires}
+$ E, F $ et $ G $ désignent des espaces vectoriels de dimensions respectives $ p,n,m $, dont $ \mathcal B=(e_i)_{1\leq i\leq p}, \mathcal C=(f_i)_{1\leq i\leq n} $ et $ \mathcal D=(g_i)_{1\leq i\leq m} $ sont des bases respectives. 
+\begin{itemize}
+\item La matrice dans la base $ \mathcal B $ d'une famille $ (x_1,\dots,x_r) $ de vecteurs de $ E $ est la matrice $ M\in\mathcal M_{p,r}(\mathbb K) $ dont la $ j- $ième colonne est constituée par les coordonnée de $ x_j $ dans la base $ \mathcal B $. 
+\item Si $ u\in \mathcal L(E,F) $, on appelle matrice de $ u $ dans les bases $ \mathcal B $ et $ \mathcal C $ la matrice de $ \mathcal M_{n,p}(\mathbb K) $ dont les vecteurs colonnes sont les coordonnées des vecteurs $ (u(e_1),\dots,u(e_p)) $ dans la base $ \mathcal C=(f_1,\dots,f_n) $. On la note $ \textrm{Mat}_{(\mathcal B,\mathcal C)}(u). $
+\item Soit $ x\in E $ de coordonnées $ X $ dans la base $ \mathcal B $ et $ y=u(x) $ de coordonnées $ Y $ dans la base $ \mathcal C $. Alors on a
+\[ Y=\textrm{Mat}_{(\mathcal B,\mathcal C)}(u)X. \]
+\item L'application 
+\begin{eqnarray*}
+\mathcal L(E,F)&\to &\mathcal M_{n,p}(\mathbb K)\\
+u&\mapsto&\textrm{Mat}_{(\mathcal B,\mathcal C)}(u)
+\end{eqnarray*}
+est un isomorphisme d'espace vectoriel. 
+\item  La composée d'applications linéaires correspond au produit de matrices. Plus précisément, si $ u\in \mathcal L(E,F) $ et $ v\in\mathcal L(F,G) $, alors 
+\[ \textrm{Mat}_{(\mathcal B,\mathcal D)}(v\circ u)=\textrm{Mat}_{(\mathcal C,\mathcal D)}(v) \textrm{Mat}_{(\mathcal B,\mathcal C)}(u). \]
+\item Si $ E $ et $ F $ ont même dimension, alors $ u $ est inversible si et seulement si $ \textrm{Mat}_{(\mathcal B,\mathcal C)}(u) $ est inversible. Dans ce cas, on a 
+\[ \textrm{Mat}_{(\mathcal C,\mathcal B)}(u^{-1})=\big[\textrm{Mat}_{(\mathcal B,\mathcal C)}(u)\big]^{-1}. \]
+\end{itemize}
+\section{Changements de base}
+$ E,F $ sont des espaces vectoriels de dimension finie. 
+\begin{itemize}
+\item Soient $ \mathcal B_1 $ et $ \mathcal B_2 $ deux bases de $ E $. La matrice de passage de la base $ \mathcal B_1 $ à la base $ \mathcal B_2 $ est la matrice de la famille de vecteurs $ \mathcal B_2 $ dans la base $ \mathcal B_1 $. On la note $ P_{\mathcal B_1}^{\mathcal B_2} $. 
+\item La matrice $ P_{\mathcal B_1}^{\mathcal B_2} $ est inversible, d'inverse $ P_{\mathcal B_2}^{\mathcal B_1} $. 
+\item Si $ x\in E $ a pour coordonnées $ X_1 $ dans la base $ \mathcal B_1 $ et pour coordonnées $ X_2 $ dans la base $ \mathcal B_2 $, alors 
+\end{itemize}
+\begin{prop} (Formule de changement de base pour les applications linéaires)  Soit $ u\in\mathcal L(E,F) $, $ \mathcal B,\ \mathcal B' $′ deux bases de $ E, \mathcal C,\ \mathcal C' $′ deux bases de $ F $. Alors, si l'on note $ A=\textrm{Mat}_{(\mathcal B,\mathcal C)}(u), B=\textrm{Mat}_{(\mathcal B',\mathcal C')}(u), P=P_{\mathcal B}^{\mathcal B'}, Q=P_{\mathcal C}^{\mathcal C'} $, alors 
+\[ B=Q^{-1}AP. \]
+En particulier, si $ u $ est un endomorphisme, si $ A=\textrm{Mat}_{(\mathcal B,\mathcal B)}(u),B=\textrm{Mat}_{(\mathcal B',\mathcal B')}(u), P=P_{\mathcal B}^{\mathcal B'} $ alors 
+\[ B=P^{-1}AP. \]
+\section{Opérations, systèmes linéaires}
+\begin{itemize}
+\item On appelle opération élémentaire sur les lignes d'une matrice l'une des trois opérations suivantes : *
+\begin{itemize}
+\item permuter deux lignes $ L_i $ et $ L_j $; 
+\item multiplier une ligne $ L_i $ par un scalaire $ \lambda $ non nul; 
+\item ajouter un multiple d'une ligne $ L_j $ à une autre ligne $ L_i $. 
+\end{itemize}
+On définit de même des opérations élémentaires sur les colonnes.
+\item Les opérations élémentaires transforment une matrice en une matrice équivalente. En particulier, elles conservent le rang. Ainsi, pour calculer le rang d'une matrice, on effectue une suite de transformations élémentaires l'amenant à une matrice du type $ J_r $. 
+\item Soit $ A\in\mathcal GL_n(\mathbb K) $. Il existe une suite d'opérations élémentaires sur les lignes de $ A $ transformant $ A $ en $ I_n $. Les mêmes opérations élémentaires effectuées sur les lignes de $ I_n $ transforment $ I_n $ en $ A^{-1} $.
+\item Un système linéaire à $ n $ équations et $ p $ inconnues s'écrit matriciellement $ AX=B $, avec $ A\in\mathcal M_{n,p}(\mathbb K) $, $ X=\left(\begin{array}c x_1\\\vdots\\x_p\end{array}\right) $ et $ B $ la matrice du second membre. 
+\item Si $ n=p $, on dit que le système est carré. L'équation $ AX=B $ admet alors une solution unique si et seulement $ A $ est inversible. Dans ce cas, la solution est $ X=A^{-1}B $. 
+\end{itemize}
+\end{prop}
+\section{Exercices résolus}
+\begin{exo} Calculer lorsqu'ils sont définis les produits $ AB $ et $ BA $ dans chacun des cas suivants : \begin{enumerate}\item
+\[  \displaystyle A= \left(\begin{array}{cc}
+1  &  0  \\
+0  &  0 \\
+\end{array}\right),\quad 
+B=\left(\begin{array}{cc}
+0  &  0  \\
+0  &  1 \\
+\end{array}\right) \] \item \[ \displaystyle A=\left(\begin{array}{ccc}
+0 & 2 & 1\\
+1 & 1 & 0\\
+-1&-2 &-1\\
+\end{array}\right),\quad
+B=\left(\begin{array}{ccc}
+2 & 0 & 1\\
+-1& 1 & 2\\
+\end{array}\right) \] \item \[ \displaystyle A=\left(\begin{array}{cc}
+1 & 2 \\
+1 & 1 \\
+0 & 3 \\
+\end{array}\right),
+\quad B=\left(\begin{array}{cccc}
+-1 & 1 & 0& 1 \\
+2 & 1 & 0& 0 \\
+\end{array}\right) \]
+\end{enumerate}
+\end{exo}
+\begin{sol} \begin{enumerate}
+ \item Puisque $ A $ et $ B $ sont deux matrices carrées de même ordre, les deux produits $ AB $ et $ BA $ sont possibles. On trouve : 
+\[ AB=\left(\begin{array}{cc}
+0  &  0  \\
+0  &  0 \\
+\end{array}\right),\quad
+BA=\left(\begin{array}{cc}
+0  &  0  \\
+0  &  0 \\
+\end{array}\right). \]
+En particulier, $ AB=BA=0 $ alors que ni $ A $ ni $ B $ ne sont nuls.  \item Le produit $ AB $ n'est pas défini car $ A $ a trois colonnes et $ B $ deux lignes. Pour $ BA $, on trouve \[ BA=\left(\begin{array}{ccc}
+-1  &  2 & 1 \\
+-1  &  -5&-3 \\
+\end{array}\right). \] \item Le produit $ BA $ n'est pas défini. En revanche, on a \[ AB=\left(\begin{array}{cccc}
+3&3&0&1\\
+1&2&0&1\\
+6&3&0&0
+\end{array}\right). \]
+\end{enumerate}
+\end{sol}
+\begin{exo} Soit \[ A=\left(
+\begin{array}{ccc}
+1&1&0\\
+0&1&1\\
+0&0&1
+\end{array}\right),\quad
+I=\left(
+\begin{array}{ccc}
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{array}\right)\textrm{ et }
+B=A-I. \]
+Calculer $ B^n $ pour tout $ n\in\mathbb{N} $. En déduire $ A^n $.
+\end{exo}
+\begin{sol} On commence par calculer les premières valeurs de $ B^n $. On a \[ B=\left(
+\begin{array}{ccc}
+0&1&0\\
+0&0&1\\
+0&0&0
+\end{array}\right),\quad 
+B^2=\left(
+\begin{array}{ccc}
+0&0&1\\
+0&0&0\\
+0&0&0
+\end{array}\right),\quad
+B^3=\left(
+\begin{array}{ccc}
+0&0&0\\
+0&0&0\\
+0&0&0
+\end{array}\right). \] On en déduit alors par récurrence que, pour tout $ n\geq3 $, on a $ B^n=0 $. En effet, c'est vrai pour $ n=3 $. Si c'est vrai au rang $ n\geq3 $, alors  \[ B^{n+1}=B^n\times B=0\times B=0. \] Pour obtenir $ A $, on écrit $ A=I+B $ et on remarque que $ I $ et $ B $ commutent puisque $ IB=BI=B $. On peut alors appliquer la formule du binôme de Newton, ce qui est très facile ici puisque $ B^n=0 $ dès que $ n\geq3 $. On en déduit  \[ A^n=I^{n}+\binom{n}{1}I^{n-1}B+\binom{n}{2}I^{n-2}B^2 \] ce qui se réécrit en \[ A^n=I+nB+\frac{n(n-1)}{2}B^2. \] On a donc \[ A^n=\left(\begin{array}{ccc}
+1&n&\frac{n(n-1)}2\\
+0&1&n\\
+0&0&1
+\end{array}
+\right). \]
+\end{sol}
+\begin{exo} \begin{enumerate}
+\item  Pour $ n\geq2 $, déterminer le reste de la division euclidienne de $ X^n $ par $ X^2-3X+2 $. 
+\item Soit \[ A=\begin{pmatrix} 
+0&1&-1\\
+-1&2&-1\\
+1&-1&2
+\end{pmatrix} \] Déduire de la question précédente la valeur de $ A^n $, pour $ n\geq2 $. 
+\end{enumerate}
+\end{exo}
+\begin{sol} \begin{enumerate}
+\item On sait que \[ X^n=(X^2-3X+2)Q_n(X)+a_nX+b_n, \] où $ a_nX+b_n $ est le reste dans la division euclidienne de $ X^n $ par $ X^2-3X+2 $. Pour trouver la valeur de $ a_n $ et $ _bn $, on évalue l'égalité précédente en les racines de $ X^2-3X+2 $, c'est-à-dire en 1 et 2. On trouve le système :\[ \left\{
+\begin{array}{rcl}
+a_n+b_n&=&1\\
+2a_n+b_n&=&2^n
+\end{array}\right. \] dont l'unique solution est $ a_n=2^n-1 $ et $ b_n=2-2^n. $ \item Il suffit de remarquer que $ A^2−3A+2I_3=0 $. Remplaçant dans l'expression de la division euclidienne, on trouve  \[ A^n =(2^n-1)A+(2-2^n)I_3. \]
+\end{enumerate}
+\end{sol}
+\begin{exo} Soit $ E $ le sous ensemble de $ M_3({\mathbb R}) $ défini par \[ E = \Bigl \{  M(a,b,c)=\left( \begin{array}{ccc} a & 0 & c \\
+                    0 & b & 0 \\
+                    c & 0 & a \\ \end{array}\right):\;\;  a , b  , c \in {\mathbb R} \Bigr \} . \]
+Montrer que $ E $ est un sous-espace vectoriel de $ M_3({\mathbb R}) $ stable pour la multiplication des matrices. Calculer $ \dim(E) $.
+\end{exo}
+\begin{sol} Considérons $ A, B $ et $ C $ les trois matrices suivantes : 
+\[ A=\left( \begin{array}{ccc} 1 & 0 & 0 \\
+                    0 & 0 & 0 \\
+                    0 & 0 & 1 \\ \end{array}\right),
+B=\left( \begin{array}{ccc} 0 & 0 & 0 \\
+                    0 & 1 & 0 \\
+                    0 & 0 & 0 \\ \end{array}\right),
+C=\left( \begin{array}{ccc} 0 & 0 & 1 \\
+                    0 & 0 & 0 \\
+                    1 & 0 & 0 \\ \end{array}\right)
+. \] Alors une matrice $ M $ est élément de $ E $ si et seulement si il existe trois réels $ a,b,c $ tels que $ M=aA+bB+cC $. Autrement dit, $ E=vect(A,B,C) $ est le sous-espace vectoriel de $ \mathcal M_3(\mathbb R) $ engendré par $ A,B,C. E $ est donc bien un sous-espace vectoriel de $ M_3(\mathbb{R}) $. De plus, $ (A,B,C) $ est une base de E. En effet, par définition, c'est une famille génératrice de $ E $. De plus, $ (A,B,C) $ est une famille libre. En effet, s'il existe trois scalaires $ a,b,c $ tels que $ aA+bB+cC=0 $, alors on obtient $ M(a,b,c)=0 $ ce qui donne $ a=b=c=0 $. Ainsi, $ \dim(E)=3 $. Reste à voir que $ E $ est stable par multiplication de matrices. Mais, pour tous $ a,b,c,a',b',c' $ réels, on a : \[ M(a,b,c)\times M(a',b',c')=
+\left(
+\begin{array}{ccc}
+aa'+cc' & 0 & ac'+a'c \\
+0 & bb' & 0 \\
+ac'+a'c & 0 & aa'+cc' \\
+\end{array}\right)=M(aa'+cc',bb',ac'+a'c)\in E. \] $ E $ est donc bien stable par multiplication.
+\end{sol}
+\begin{exo}Résoudre les systèmes linéaires suivants : \[ \left\{
+\begin{array}{rcl}
+x+y+2z&=&3\\
+x+2y+z&=&1\\
+2x+y+z&=&0
+\end{array}\right.
+\quad\quad\quad
+\left\{
+\begin{array}{rcl}
+x+2z&=&1\\
+-y+z&=&2\\
+x-2y&=&1
+\end{array}\right. \]
+\end{exo}
+\begin{sol}On va utiliser la méthode du pivot de Gauss. Pour le premier système, on écrit 
+ \begin{eqnarray*}
+\left\{
+\begin{array}{rcl}
+x+y+2z&=&3\\
+x+2y+z&=&1\\
+2x+y+z&=&0
+\end{array}\right.
+&\iff&
+\left\{
+\begin{array}{rcl}
+x+y+2z&=&3\\
+y-z&=&-2\quad L_2-L_1\to L_2\\
+-y-3z&=&-6\quad L_3-2L_1\to L_3
+\end{array}\right. \\
+&\iff&
+\left\{
+\begin{array}{rcl}
+x+y+2z&=&3\\
+y-z&=&-2\\
+-4z&=&-8\quad L_3+L_2\to L_2
+\end{array}\right. \\
+&\iff&
+\left\{
+\begin{array}{rcl}
+x&=&-1\\
+y&=&0\\
+z&=&2
+\end{array}\right. \\
+\end{eqnarray*} 
+Pour le second système, on procède de la même façon :  \begin{eqnarray*}
+\left\{
+\begin{array}{rcl}
+x+2z&=&1\\
+-y+z&=&2\\
+x-2y&=&1
+\end{array}\right.
+&\iff&
+\left\{
+\begin{array}{rcl}
+x+2z&=&1\\
+-y+z&=&2\\
+-2y-2z&=&0\quad\quad L_3-L_1\to L_3
+\end{array}\right.\\
+&\iff&
+\left\{
+\begin{array}{rcl}
+x+2z&=&1\\
+-y+z&=&2\\
+-4z&=&-4\quad\quad L_3-2L_2\to L_2
+\end{array}\right. \\
+&\iff&
+\left\{
+\begin{array}{rcl}
+x&=&-1\\
+y&=&-1\\
+z&=&1
+\end{array}\right.
+\end{eqnarray*} 
+\end{sol}
+\begin{exo} Résoudre les systèmes suivants : 
+\begin{eqnarray*}
+\left\{
+\begin{array}{rcl}
+x+y+z-3t&=&1\\
+2x+y-z+t&=&-1
+\end{array}\right.
+\quad\quad\quad
+\left\{
+\begin{array}{rcl}
+x+2y-3z&=&4\\
+x+3y-z&=&11\\
+2x+5y-5z&=&13\\
+x+4y+z&=&18
+\end{array}\right.
+\end{eqnarray*}
+\end{exo}
+\begin{sol}
+Pour le premier système : \begin{eqnarray*}
+\left\{
+\begin{array}{rcl}
+x+y+z-3t&=&1\\
+2x+y-z+t&=&-1
+\end{array}\right.
+&\iff&
+\left\{
+\begin{array}{rcl}
+x+y+z-3t&=&1\\
+-y-3z+7t&=&-3
+\end{array}\right.
+\end{eqnarray*}
+Le système est triangulaire, et il y a plus d'inconnues que d'équations. On va donc exprimer certaines inconnues en fonctions des autres. Par exemple, ici, on peut exprimer $ x $ et $ y $ en fonction de $ z $ et $ t $. Le système devient : \begin{eqnarray*}
+\left\{
+\begin{array}{rcl}
+x+y+z-3t&=&1\\
+-y-3z+7t&=&-3\\
+z&=&z\\
+t&=&t
+\end{array}\right.
+&\iff&
+\left\{
+\begin{array}{rcl}
+x&=&2z-4t-2\\
+y&=&-3z+7t+3\\
+z&=&z\\
+t&=&t
+\end{array}\right.
+\end{eqnarray*}
+L'ensemble des solutions est donc \[ \mathcal S=\left\{(2z-4t-2,-3z+7t+3,z,t);\ (z,t)\in\mathbb R^2\right\}. \] Pour le second système, on écrit \begin{eqnarray*}
+\left\{
+\begin{array}{rcl}
+x+2y-3z&=&4\\
+x+3y-z&=&11\\
+2x+5y-5z&=&13\\
+x+4y+z&=&18
+\end{array}\right.
+&\iff&
+\left\{
+\begin{array}{rcl}
+x+2y-3z&=&4\\
+y+2z&=&7\quad L_2-L_1\to L_2\\
+y+z&=&5\quad L_3-2L_1\to L_3\\
+2y+4z&=&14\quad L_4-L_1\to L_4
+\end{array}\right.\\
+&\iff&
+\left\{
+\begin{array}{rcl}
+x+2y-3z&=&4\\
+y+2z&=&7\\
+-z&=&-2\quad L_3-L_2\to L_3\\
+0&=&0\quad L_4-2L_2\to L_4
+\end{array}\right.
+\end{eqnarray*}
+La dernière relation de compatibilité est vérifiée. On en déduit alors facilement que l'ensemble des solutions est \[ \mathcal S=\left\{(4,3,2)\right\}. \]
+\end{sol}
+\begin{exo} Discuter, suivant la valeur du paramètre $ m\in\mathbb C $, le nombre de solutions du système suivant : \[ \left\{
+\begin{array}{rcl}
+x-my+m^2z&=&m\\
+mx-m^2y+mz&=&1\\
+mx+y-m^3z&=&-1
+\end{array}\right. \]
+\end{exo}
+\begin{sol}
+On applique la méthode du pivot de Gauss et on obtient : \[ \left\{
+\begin{array}{rcl}
+x-my+m^2z&=&m\\
+mx-m^2y+mz&=&1\\
+mx+y-m^3z&=&-1
+\end{array}\right.
+\iff 
+\left\{
+\begin{array}{rcll}
+x-my+m^2z&=&m\\
+(m-m^3)z&=&1-m^2&\quad\quad L_2-mL_1\to L_2\\
+(1+m^2)y-2m^3z&=&-1-m^2&\quad\quad L_3-mL_1\to L_3
+\end{array}\right. \] On discute alors suivant la valeur de $ m $. Si $ m=0 $, la deuxième ligne devient $ 0=-1 $, et le système est incompatible : il n'admet pas de solutions. Si $ m=1 $ ou $ m=-1 $, la deuxième ligne devient $ 0=0 $. Le système est alors équivalent à \[ \left\{
+\begin{array}{rcll}
+x-my+m^2z&=&m\\
+2y-2m^3z&=&-2
+\end{array}\right. \] Dans ce cas, le système admet une infinité de solutions. L'ensemble des solutions est une droite de $ \mathbb{R}^3 $.
+Supposons maintenant  $ m\neq0,\pm1  $. Le système est alors équivalent à \[ \left\{
+\begin{array}{rcll}
+x-my+m^2z&=&m\\
+z&=&\frac 1m\\
+(1+m^2)y&=&-1-m^2+2m^2
+\end{array}\right. \] Il faut encore discuter : si $ m\neq \pm i $, alors on peut déterminer $ y $ et le système admet une unique solution. Si $ m=\pm i $, la dernière ligne devient $ 0=-2 $, et le système est incompatible.
+En résumé, le système : \begin{itemize}
+\item admet une unique solution si $ m\neq 0,\pm 1,\pm i $;  \item  admet une infinité de solutions (une droite de $ \mathbb{R} $) si $ m=\pm 1 $, \item n'admet pas de solutions si $ m=0,\pm i. $
+\end{itemize}
+\end{sol}
+\begin{exo} Résoudre le système suivant, où $ x, y $ et $ z $ sont des réels positifs : \[ \left\{
+\begin{array}{rcl}
+x^3y^2z^6&=&1\\
+x^4y^5z^{12}&=&2\\
+x^2y^2z^5&=&3.
+\end{array}\right. \]
+\end{exo}
+\begin{sol} On pose $ a=\ln x, b=\ln y $ et $ c=\ln z $ et notons $ (S) $ le système. La fonction logarithme étant injective, on a : \begin{eqnarray*}
+(S)&\iff&\left\{
+\begin{array}{rcl}
+3a+2b+6c&=&0\\
+4a+5b+12c&=&\ln 2\\
+2a+2b+5c&=&\ln 3
+\end{array}\right.\\
+&\iff&\left\{
+\begin{array}{rcl}
+3a+2b+6c&=&0\\
+7b+12c&=&3\ln 2\\
+2b+3c&=&3\ln 3
+\end{array}\right.\\
+&\iff&\left\{
+\begin{array}{rcl}
+3a+2b+6c&=&0\\
+7b+12c&=&3\ln 2\\
+-3c&=&21\ln 3-6\ln 2
+\end{array}\right.\\
+&\iff&\left\{
+\begin{array}{rcl}
+a&=&-2\ln 2+6\ln 3\\
+b&=&-3\ln 2+12\ln 3\\
+c&=&2\ln 2-7\ln 3.
+\end{array}\right.
+\end{eqnarray*}
+Ceci donne finalement comme unique solution \[ \left\{
+\begin{array}{rcl}
+x&=&2^{-2}3^6\\
+y&=&2^{-3}3^{12}\\
+z&=&2^23^{-7}.
+\end{array}\right. \]
+\end{sol}
+\begin{thebibliography}{99}
+\bibitem{1} Stéphane Balac ; Frédéric Sturm : Algèbre et Analyse, Cours de mathématiques de première année avec exercices corrigés.
+\bibitem{2} http://www.bibmath.net
+\end{thebibliography}
+\end{document}
